@@ -1,0 +1,13 @@
+﻿@model Proyecto1_1_1471_0550.Models.Empleado
+
+<h2>Detalles del Empleado</h2>
+<ul>
+    <li><strong>Cédula:</strong> @Model.Cedula</li>
+    <li><strong>Nombre:</strong> @Model.Nombre</li>
+    <li><strong>Fecha Nacimiento:</strong> @Model.FechaNacimiento.ToShortDateString()</li>
+    <li><strong>Fecha Ingreso:</strong> @Model.FechaIngreso.ToShortDateString()</li>
+    <li><strong>Salario/Día:</strong> @Model.SalarioPorDia</li>
+    <li><strong>Tipo:</strong> @Model.Tipo</li>
+    <li><strong>Fecha Retiro:</strong> @(Model.FechaRetiro?.ToShortDateString() ?? "Activo")</li>
+</ul>
+<a asp-action="Index" class="btn btn-secondary">⬅️ Volver</a>

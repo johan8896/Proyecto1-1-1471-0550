@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Proyecto1_1_1471_0550.Models.Mascota>
+
+<h2>Lista de Mascotas</h2>
+
+<p>
+    <a asp-controller="Mascotas" asp-action="Create" class="btn btn-success">Registrar Mascota</a>
+
+
+</p>
+
+<table class="table">
+    <tr>
+        <th>Cédula Dueño</th>
+        <th>Especie</th>
+        <th>Raza</th>
+        <th>Edad</th>
+        <th>Color</th>
+        <th>Teléfono Dueño</th>
+        <th>Email Dueño</th>
+        <th></th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.CedulaDueno</td>
+            <td>@m.TipoEspecie</td>
+            <td>@m.Raza</td>
+            <td>@m.Edad</td>
+            <td>@m.Color</td>
+            <td>@m.TelefonoDueno</td>
+            <td>@m.EmailDueno</td>
+            <td>
+                <a asp-action="Edit" asp-route-cedulaDueno="@m.CedulaDueno">✏️ Editar</a> |
+                <a asp-action="Details" asp-route-cedulaDueno="@m.CedulaDueno">👀 Detalles</a> |
+                <a asp-action="Delete" asp-route-cedulaDueno="@m.CedulaDueno">🗑️ Eliminar</a>
+            </td>
+
+        </tr>
+    }
+</table>

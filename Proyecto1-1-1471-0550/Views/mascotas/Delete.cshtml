@@ -1,0 +1,30 @@
+﻿@model Proyecto1_1_1471_0550.Models.Mascota
+
+<h2>Eliminar Mascota</h2>
+<h4>¿Está seguro que desea eliminar esta mascota?</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Cédula del Dueño:</dt>
+        <dd class="col-sm-9">@Model.CedulaDueno</dd>
+
+        <dt class="col-sm-3">Especie:</dt>
+        <dd class="col-sm-9">@Model.TipoEspecie</dd>
+
+        <dt class="col-sm-3">Raza:</dt>
+        <dd class="col-sm-9">@Model.Raza</dd>
+
+        <dt class="col-sm-3">Edad:</dt>
+        <dd class="col-sm-9">@Model.Edad años</dd>
+
+        <dt class="col-sm-3">Color:</dt>
+        <dd class="col-sm-9">@Model.Color</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="CedulaDueno" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

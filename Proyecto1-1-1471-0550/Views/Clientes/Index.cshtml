@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Proyecto1_1_1471_0550.Models.Cliente>
+
+<h2>Lista de Clientes</h2>
+
+<p>
+    <a asp-action="Create">➕ Registrar Cliente</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Identificación</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Provincia</th>
+        <th>Cantón</th>
+        <th>Distrito</th>
+        <th>Preferencia</th>
+        <th></th>
+    </tr>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Identificacion</td>
+            <td>@c.NombreCompleto</td>
+            <td>@c.Telefono</td>
+            <td>@c.Provincia</td>
+            <td>@c.Canton</td>
+            <td>@c.Distrito</td>
+            <td>@c.Preferencia</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@c.Identificacion">✏️ Editar</a> |
+                <a asp-action="Details" asp-route-id="@c.Identificacion">👀 Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@c.Identificacion">🗑️ Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>
+

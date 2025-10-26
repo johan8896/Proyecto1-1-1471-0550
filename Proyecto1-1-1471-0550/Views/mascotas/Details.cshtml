@@ -1,0 +1,15 @@
+﻿@model Proyecto1_1_1471_0550.Models.Mascota
+
+<h2>Detalles de Mascota</h2>
+<ul>
+    <li><strong>Cédula Dueño:</strong> @Model.CedulaDueno</li>
+    <li><strong>Especie:</strong> @Model.TipoEspecie</li>
+    <li><strong>Raza:</strong> @Model.Raza</li>
+    <li><strong>Edad:</strong> @Model.Edad</li>
+    <li><strong>Color:</strong> @Model.Color</li>
+    <li><strong>Última Atención:</strong> @Model.UltimaAtencion.ToShortDateString()</li>
+    <li><strong>Teléfono Dueño:</strong> @Model.TelefonoDueno</li>
+    <li><strong>Email Dueño:</strong> @Model.EmailDueno</li>
+</ul>
+<a asp-action="Index">⬅️ Volver</a>
+}

@@ -1,0 +1,11 @@
+﻿@model Proyecto1_1_1471_0550.Models.Procedimiento
+
+<h2>Eliminar Procedimiento</h2>
+<p>¿Seguro que deseas eliminar el procedimiento <strong>@Model.Id</strong> de la mascota <strong>@Model.NombreMascota</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+

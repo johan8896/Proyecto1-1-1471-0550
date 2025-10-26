@@ -1,0 +1,10 @@
+﻿@model Proyecto1_1_1471_0550.Models.Empleado
+
+<h2>Eliminar Empleado</h2>
+<p>¿Seguro que deseas eliminar al empleado <strong>@Model.Nombre</strong> con cédula <strong>@Model.Cedula</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Cedula" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

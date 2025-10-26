@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Proyecto1_1_1471_0550.Models.Procedimiento>
+
+<h2>Lista de Procedimientos</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">➕ Registrar Procedimiento</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Cédula Dueño</th>
+        <th>Nombre Mascota</th>
+        <th>Tipo Consulta</th>
+        <th>Precio</th>
+        <th>Total con IVA</th>
+        <th>Estado</th>
+        <th></th>
+    </tr>
+
+@foreach (var p in Model)
+{
+    <tr>
+        <td>@p.Id</td>
+        <td>@p.CedulaDueno</td>
+        <td>@p.NombreMascota</td>
+        <td>@p.TipoConsulta</td>
+        <td>@p.Precio</td>
+        <td>@p.CalcularTotal()</td>
+        <td>@p.Estado</td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@p.Id">✏️ Editar</a> |
+            <a asp-action="Details" asp-route-id="@p.Id">👀 Detalles</a> |
+            <a asp-action="Delete" asp-route-id="@p.Id">🗑️ Eliminar</a>
+        </td>
+    </tr>
+}
+</table>
+
+
+

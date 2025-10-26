@@ -1,0 +1,11 @@
+﻿@model Proyecto1_1_1471_0550.Models.Cliente
+
+<h2>Eliminar Cliente</h2>
+<p>¿Seguro que deseas eliminar al cliente con identificación <strong>@Model.Identificacion</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Identificacion" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+

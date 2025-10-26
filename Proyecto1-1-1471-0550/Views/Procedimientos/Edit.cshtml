@@ -1,0 +1,39 @@
+﻿@model Proyecto1_1_1471_0550.Models.Procedimiento
+
+<h2>Editar Procedimiento</h2>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label>ID</label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula Dueño</label>
+        <input asp-for="CedulaDueno" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Nombre Mascota</label>
+        <input asp-for="NombreMascota" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de Consulta</label>
+        <select asp-for="TipoConsulta"
+                asp-items="Html.GetEnumSelectList<Proyecto1_1_1471_0550.Models.TipoProcedimiento>()"
+                class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Estado</label>
+        <select asp-for="Estado"
+                asp-items="Html.GetEnumSelectList<Proyecto1_1_1471_0550.Models.EstadoProcedimiento>()"
+                class="form-control"></select>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+

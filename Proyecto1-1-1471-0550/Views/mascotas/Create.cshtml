@@ -1,0 +1,52 @@
+﻿@model Proyecto1_1_1471_0550.Models.Mascota
+
+
+<h2>Registrar Mascota</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Cédula del Dueño</label>
+        <input asp-for="CedulaDueno" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Especie</label>
+        <select asp-for="TipoEspecie"
+                asp-items="Html.GetEnumSelectList<Proyecto1_1_1471_0550.Models.Especie>()"
+                class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Raza</label>
+        <input asp-for="Raza" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Edad</label>
+        <input asp-for="Edad" type="number" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Color</label>
+        <input asp-for="Color" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Última Atención</label>
+        <input asp-for="UltimaAtencion" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Teléfono del Dueño</label>
+        <input asp-for="TelefonoDueno" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Email del Dueño</label>
+        <input asp-for="EmailDueno" type="email" class="form-control" />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

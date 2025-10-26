@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Proyecto1_1_1471_0550.Models.Empleado>
+
+<h2>Lista de Empleados</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">➕ Agregar Empleado</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Salario/Día</th>
+        <th>Años en Empresa</th>
+        <th></th>
+    </tr>
+
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.Cedula</td>
+            <td>@emp.Nombre</td>
+            <td>@emp.Tipo</td>
+            <td>@emp.SalarioPorDia</td>
+            <td>@emp.AñosEnEmpresa()</td>
+            <td>
+                <a asp-action="Edit" asp-route-cedula="@emp.Cedula">✏️ Editar</a> |
+                <a asp-action="Details" asp-route-cedula="@emp.Cedula">👀 Detalles</a> |
+                <a asp-action="Delete" asp-route-cedula="@emp.Cedula">🗑️ Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>
+

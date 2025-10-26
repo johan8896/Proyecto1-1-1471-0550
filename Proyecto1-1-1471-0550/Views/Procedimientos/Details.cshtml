@@ -1,0 +1,14 @@
+﻿@model Proyecto1_1_1471_0550.Models.Procedimiento
+
+<h2>Detalles del Procedimiento</h2>
+<ul>
+    <li><strong>ID:</strong> @Model.Id</li>
+    <li><strong>Cédula Dueño:</strong> @Model.CedulaDueno</li>
+    <li><strong>Nombre Mascota:</strong> @Model.NombreMascota</li>
+    <li><strong>Tipo Consulta:</strong> @Model.TipoConsulta</li>
+    <li><strong>Precio:</strong> @Model.Precio</li>
+    <li><strong>Total con IVA:</strong> @Model.CalcularTotal()</li>
+    <li><strong>Estado:</strong> @Model.Estado</li>
+</ul>
+<a asp-action="Index">⬅️ Volver</a>
+
