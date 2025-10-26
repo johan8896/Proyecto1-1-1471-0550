@@ -13,11 +13,10 @@ namespace Proyecto1_1_1471_0550.Controllers
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:7279/api/") // 👈 Cambia el puerto si tu API usa otro
+                BaseAddress = new Uri("https://localhost:7279/api/")
             };
         }
 
-        // ✅ GET: Mascotas
         public async Task<IActionResult> Index()
         {
             var response = await _httpClient.GetAsync("mascotas");
@@ -29,10 +28,8 @@ namespace Proyecto1_1_1471_0550.Controllers
             return View(mascotas);
         }
 
-        // ✅ GET: Mascotas/Create
         public IActionResult Create() => View();
 
-        // ✅ POST: Mascotas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Mascota mascota)
@@ -52,31 +49,24 @@ namespace Proyecto1_1_1471_0550.Controllers
             return View(mascota);
         }
 
-        // ✅ GET: Mascotas/Edit/{id}
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string cedula)
         {
-            var response = await _httpClient.GetAsync($"mascotas/{id}");
+            var response = await _httpClient.GetAsync($"mascotas/{cedula}");
             if (!response.IsSuccessStatusCode)
                 return NotFound();
 
             var json = await response.Content.ReadAsStringAsync();
             var mascota = JsonConvert.DeserializeObject<Mascota>(json);
-
             return View(mascota);
         }
 
-        // ✅ POST: Mascotas/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Mascota mascota)
+        public async Task<IActionResult> Edit(string cedula, Mascota mascota)
         {
-            if (!ModelState.IsValid)
-                return View(mascota);
-
             var json = JsonConvert.SerializeObject(mascota);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await _httpClient.PutAsync($"mascotas/{id}", content);
+            var response = await _httpClient.PutAsync($"mascotas/{cedula}", content);
 
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(Index));
@@ -85,38 +75,33 @@ namespace Proyecto1_1_1471_0550.Controllers
             return View(mascota);
         }
 
-        // ✅ GET: Mascotas/Details/{id}
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(string cedula)
         {
-            var response = await _httpClient.GetAsync($"mascotas/{id}");
+            var response = await _httpClient.GetAsync($"mascotas/{cedula}");
             if (!response.IsSuccessStatusCode)
                 return NotFound();
 
             var json = await response.Content.ReadAsStringAsync();
             var mascota = JsonConvert.DeserializeObject<Mascota>(json);
-
             return View(mascota);
         }
 
-        // ✅ GET: Mascotas/Delete/{id}
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string cedula)
         {
-            var response = await _httpClient.GetAsync($"mascotas/{id}");
+            var response = await _httpClient.GetAsync($"mascotas/{cedula}");
             if (!response.IsSuccessStatusCode)
                 return NotFound();
 
             var json = await response.Content.ReadAsStringAsync();
             var mascota = JsonConvert.DeserializeObject<Mascota>(json);
-
             return View(mascota);
         }
 
-        // ✅ POST: Mascotas/DeleteConfirmed
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string cedula)
         {
-            var response = await _httpClient.DeleteAsync($"mascotas/{id}");
+            var response = await _httpClient.DeleteAsync($"mascotas/{cedula}");
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(Index));
 
